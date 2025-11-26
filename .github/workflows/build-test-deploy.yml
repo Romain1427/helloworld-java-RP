@@ -7,4 +7,20 @@ on:
   push:
     branches: [main] 
 
-  
+jobs:
+  build-app:
+    name: "Build"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.0
+      - name: Setup Java JDK
+        uses: actions/setup-java@v5.0.0
+        with:
+          # Java distribution. See the list of supported distributions in README file
+          distribution: oracle
+   
+      - name: "start build"
+        run:
+          mvn clean package -DskipTests
