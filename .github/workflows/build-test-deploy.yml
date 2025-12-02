@@ -34,7 +34,29 @@ jobs:
       - name: "start build"
         run:
           mvn clean package -DskipTests
+  test-app:
+    name: "Test"
+    runs-on: ubuntu-latest
 
-      - name: "start tests"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.0
+      - name: Setup Java JDK
+        uses: actions/setup-java@v5.0.0
+        with:
+          # Java distribution. See the list of supported distributions in README file
+          distribution: zulu
+          java-version: 17
+
+      - name: Cache
+        uses: actions/cache@v4.3.0
+        with:
+          # A list of files, directories, and wildcard patterns to cache and restore
+          path: "${{ github.workspace }}/.m2/repository/"
+          # An explicit key for restoring and saving the cache
+          key: 'repository_hash'
+
+      - name: "start build"
         run:
           mvn test
+  
