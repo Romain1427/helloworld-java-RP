@@ -22,10 +22,7 @@ jobs:
           # Java distribution. See the list of supported distributions in README file
           distribution: zulu
           java-version: 17
-   
-      - name: "start build"
-        run:
-          mvn clean package -DskipTests
+
       - name: Cache
         uses: actions/cache@v4.3.0
         with:
@@ -33,3 +30,8 @@ jobs:
           path: 'cache/mymavenvars/'
           # An explicit key for restoring and saving the cache
           key: 'mymavenvars'
+
+      - name: "start build"
+        run:
+          mvn clean package -DskipTests
+      
