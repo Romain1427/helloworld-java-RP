@@ -34,4 +34,7 @@ jobs:
       - name: "start build"
         run:
           mvn clean package -DskipTests
-      
+
+      - name: "start tests"
+        run:
+          mvn test
