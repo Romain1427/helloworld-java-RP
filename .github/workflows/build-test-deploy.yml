@@ -28,7 +28,7 @@ jobs:
            # Artifact name
            name: helloworld-${{ env.PROJECT_VERSION }}.jar
            # A file, directory or wildcard pattern that describes what to upload
-           path: "${{ github.workspace }}/.m2/artifact/"
+           path: "target/helloworld-1.0-SNAPSHOT.jar"
            # The desired behavior if no files are found using the provided path.
       - name: Cache
         uses: actions/cache@v4.3.0
