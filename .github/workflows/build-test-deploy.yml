@@ -37,8 +37,8 @@ jobs:
         uses: actions/upload-artifact@v5.0.0
         with:
            # Artifact name
-           name: helloworld-${{ env.PROJECT_VERSION }}.jar
            path: "target/helloworld-1.0-SNAPSHOT.jar"
+           name: helloworld-${{ env.PROJECT_VERSION }}.jar
   test-app:
     name: "Test"
     runs-on: ubuntu-latest
